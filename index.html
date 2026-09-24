@@ -1,180 +1,709 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MANIPUR ONE</title>
+<title>MANIPUR ONE</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #111827;
-    }
+:root {
+  --green: #087f5b;
+  --green2: #12b886;
+  --orange: #ff922b;
+  --red: #e03131;
+  --blue: #1971c2;
+  --purple: #7950f2;
+  --dark: #101828;
+  --text: #172033;
+  --muted: #667085;
+  --bg: #f6f8fb;
+  --white: #ffffff;
+}
 
-    header {
-      background: white;
-      padding: 22px 20px;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding-bottom: 90px;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-    }
+/* TOP BAR */
 
-    .tagline {
-      color: #6b7280;
-      margin-top: 5px;
-    }
+.topbar {
+  background: linear-gradient(135deg, #063b2b, #087f5b, #12b886);
+  color: white;
+  padding: 24px 20px 28px;
+  border-radius: 0 0 30px 30px;
+}
 
-    .hero {
-      margin: 16px;
-      padding: 25px;
-      border-radius: 22px;
-      background: #111827;
-      color: white;
-    }
+.brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .hero h1 {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
 
-    .hero p {
-      line-height: 1.6;
-      color: #d1d5db;
-    }
+.logo span {
+  color: #ffd43b;
+}
 
-    .hero button {
-      margin-top: 18px;
-      padding: 13px 18px;
-      border: none;
-      border-radius: 12px;
-      background: white;
-      color: #111827;
-      font-weight: bold;
-      font-size: 15px;
-    }
+.profile {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
 
-    .section {
-      padding: 10px 16px;
-    }
+/* HERO */
 
-    .section h2 {
-      margin-bottom: 15px;
-    }
+.hero {
+  margin-top: 25px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+.hero small {
+  opacity: .8;
+}
 
-    .card {
-      background: white;
-      padding: 22px 10px;
-      border-radius: 18px;
-      text-align: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-    }
+.hero h1 {
+  font-size: 34px;
+  line-height: 1.1;
+  margin: 8px 0 10px;
+}
 
-    .icon {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+.hero p {
+  color: rgba(255,255,255,.85);
+  line-height: 1.5;
+}
 
-    .card p {
-      font-weight: bold;
-    }
+/* SEARCH */
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: #6b7280;
-      font-size: 13px;
-    }
-  </style>
+.search {
+  margin-top: 22px;
+  background: white;
+  border-radius: 17px;
+  padding: 15px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+
+.search input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+}
+
+.search-icon {
+  font-size: 20px;
+}
+
+/* MAIN */
+
+.container {
+  padding: 25px 18px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-title h2 {
+  font-size: 21px;
+}
+
+.see {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* FEATURE CARDS */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.feature {
+  min-height: 145px;
+  border-radius: 23px;
+  padding: 18px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.feature:active {
+  transform: scale(.96);
+}
+
+.feature h3 {
+  font-size: 18px;
+  margin-top: 32px;
+}
+
+.feature p {
+  font-size: 12px;
+  margin-top: 5px;
+  opacity: .85;
+}
+
+.feature-icon {
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  font-size: 34px;
+}
+
+.map {
+  background: linear-gradient(135deg, #1971c2, #4dabf7);
+}
+
+.tourism {
+  background: linear-gradient(135deg, #087f5b, #38d9a9);
+}
+
+.food {
+  background: linear-gradient(135deg, #e8590c, #ff922b);
+}
+
+.transport {
+  background: linear-gradient(135deg, #6741d9, #9775fa);
+}
+
+/* DISCOVER */
+
+.discover-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.small-card {
+  background: white;
+  border-radius: 17px;
+  padding: 15px 5px;
+  text-align: center;
+  box-shadow: 0 5px 18px rgba(16,24,40,.06);
+  cursor: pointer;
+}
+
+.small-card:active {
+  transform: scale(.95);
+}
+
+.small-icon {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.small-card p {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* DESTINATION */
+
+.destination {
+  height: 210px;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.8), transparent),
+    linear-gradient(135deg, #74c0fc, #087f5b);
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.destination-content h2 {
+  font-size: 24px;
+}
+
+.destination-content p {
+  margin-top: 5px;
+  opacity: .85;
+  font-size: 13px;
+}
+
+/* QUICK ACTIONS */
+
+.actions {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.action {
+  min-width: 135px;
+  background: white;
+  border-radius: 18px;
+  padding: 17px;
+  box-shadow: 0 5px 18px rgba(16,24,40,.06);
+}
+
+.action-icon {
+  font-size: 26px;
+}
+
+.action h4 {
+  margin-top: 10px;
+}
+
+.action p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* BUSINESS */
+
+.business {
+  background: linear-gradient(135deg, #fff4e6, #ffe8cc);
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.business h2 {
+  color: #d9480f;
+}
+
+.business p {
+  color: #7c2d12;
+  margin-top: 7px;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+.business button {
+  margin-top: 15px;
+  border: none;
+  background: #e8590c;
+  color: white;
+  padding: 12px 17px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* EMERGENCY */
+
+.emergency {
+  background: linear-gradient(135deg, #c92a2a, #ff6b6b);
+  color: white;
+  padding: 20px;
+  border-radius: 23px;
+}
+
+.emergency h2 {
+  font-size: 20px;
+}
+
+.emergency p {
+  opacity: .9;
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.emergency button {
+  margin-top: 15px;
+  background: white;
+  color: #c92a2a;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav-item {
+  text-align: center;
+  color: #98a2b3;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.nav-item.active {
+  color: var(--green);
+}
+
+.nav-icon {
+  font-size: 22px;
+  display: block;
+  margin-bottom: 3px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 700px) {
+  .topbar {
+    padding: 35px calc((100% - 900px)/2);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .discover-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">MANIPUR ONE</div>
-    <div class="tagline">Explore • Connect • Grow</div>
-  </header>
+<!-- TOP -->
 
-  <section class="hero">
-    <h1>Welcome to Manipur</h1>
+<header class="topbar">
+
+  <div class="brand-row">
+    <div class="logo">
+      MANIPUR <span>ONE</span>
+    </div>
+
+    <div class="profile">👤</div>
+  </div>
+
+  <div class="hero">
+    <small>YOUR DIGITAL GUIDE TO MANIPUR</small>
+
+    <h1>Explore Manipur.<br>All in one place.</h1>
 
     <p>
-      Discover places, food, transport, businesses,
-      jobs and useful services across Manipur.
+      Discover places, food, people, businesses,
+      services and everything Manipur has to offer.
     </p>
+  </div>
 
-    <button onclick="alert('Explore Manipur coming soon!')">
-      Explore Manipur
-    </button>
-  </section>
+  <div class="search">
+    <span class="search-icon">🔎</span>
+    <input
+      type="text"
+      placeholder="Search Manipur..."
+      onkeyup="searchSite(this.value)"
+    >
+  </div>
 
-  <section class="section">
+</header>
 
-    <h2>Discover</h2>
 
-    <div class="grid">
+<!-- MAIN -->
 
-      <div class="card">
-        <div class="icon">🗺️</div>
-        <p>Explore Map</p>
+<main class="container">
+
+  <!-- FEATURED -->
+
+  <div class="section-title">
+    <h2>Explore</h2>
+    <span class="see">View all</span>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature map" onclick="openFeature('Map')">
+      <div class="feature-icon">🗺️</div>
+      <h3>Explore Map</h3>
+      <p>Find places around Manipur</p>
+    </div>
+
+    <div class="feature tourism" onclick="openFeature('Tourism')">
+      <div class="feature-icon">🏔️</div>
+      <h3>Tourism</h3>
+      <p>Discover beautiful destinations</p>
+    </div>
+
+    <div class="feature food" onclick="openFeature('Food')">
+      <div class="feature-icon">🍜</div>
+      <h3>Food</h3>
+      <p>Find local food & restaurants</p>
+    </div>
+
+    <div class="feature transport" onclick="openFeature('Transport')">
+      <div class="feature-icon">🚌</div>
+      <h3>Transport</h3>
+      <p>Move around Manipur</p>
+    </div>
+
+  </div>
+
+
+  <!-- DISCOVER -->
+
+  <div style="margin-top:30px">
+
+    <div class="section-title">
+      <h2>Discover</h2>
+      <span class="see">More</span>
+    </div>
+
+    <div class="discover-grid">
+
+      <div class="small-card" onclick="openFeature('Hotels')">
+        <div class="small-icon">🏨</div>
+        <p>Hotels</p>
       </div>
 
-      <div class="card">
-        <div class="icon">🏞️</div>
-        <p>Tourism</p>
+      <div class="small-card" onclick="openFeature('Businesses')">
+        <div class="small-icon">🏪</div>
+        <p>Business</p>
       </div>
 
-      <div class="card">
-        <div class="icon">🍴</div>
-        <p>Food</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🚌</div>
-        <p>Transport</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🏪</div>
-        <p>Businesses</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">💼</div>
+      <div class="small-card" onclick="openFeature('Jobs')">
+        <div class="small-icon">💼</div>
         <p>Jobs</p>
       </div>
 
-      <div class="card">
-        <div class="icon">🛒</div>
-        <p>Local Products</p>
+      <div class="small-card" onclick="openFeature('Products')">
+        <div class="small-icon">🛍️</div>
+        <p>Products</p>
       </div>
 
-      <div class="card">
-        <div class="icon">🚨</div>
+      <div class="small-card" onclick="openFeature('Hospitals')">
+        <div class="small-icon">🏥</div>
+        <p>Hospitals</p>
+      </div>
+
+      <div class="small-card" onclick="openFeature('Events')">
+        <div class="small-icon">🎉</div>
+        <p>Events</p>
+      </div>
+
+      <div class="small-card" onclick="openFeature('Favorites')">
+        <div class="small-icon">❤️</div>
+        <p>Favorites</p>
+      </div>
+
+      <div class="small-card" onclick="openFeature('Emergency')">
+        <div class="small-icon">🚨</div>
         <p>Emergency</p>
       </div>
 
     </div>
-  </section>
 
-  <footer>
-    © 2026 MANIPUR ONE
-  </footer>
+  </div>
+
+
+  <!-- DESTINATION -->
+
+  <div style="margin-top:30px">
+
+    <div class="section-title">
+      <h2>Featured destination</h2>
+      <span class="see">Explore</span>
+    </div>
+
+    <div class="destination">
+
+      <div class="destination-content">
+        <h2>Loktak Lake</h2>
+        <p>Discover one of Manipur's most iconic destinations.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- QUICK ACTIONS -->
+
+  <div style="margin-top:30px">
+
+    <div class="section-title">
+      <h2>Quick services</h2>
+    </div>
+
+    <div class="actions">
+
+      <div class="action" onclick="openFeature('Hospitals')">
+        <div class="action-icon">🏥</div>
+        <h4>Hospitals</h4>
+        <p>Find healthcare nearby</p>
+      </div>
+
+      <div class="action" onclick="openFeature('Transport')">
+        <div class="action-icon">🚕</div>
+        <h4>Transport</h4>
+        <p>Travel around Manipur</p>
+      </div>
+
+      <div class="action" onclick="openFeature('Jobs')">
+        <div class="action-icon">💼</div>
+        <h4>Jobs</h4>
+        <p>Find opportunities</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- BUSINESS -->
+
+  <div style="margin-top:30px">
+
+    <div class="business">
+
+      <h2>Grow your business 🚀</h2>
+
+      <p>
+        Are you a local business owner?
+        Put your business in front of people
+        across Manipur.
+      </p>
+
+      <button onclick="openFeature('Business Registration')">
+        List your business
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- EMERGENCY -->
+
+  <div style="margin-top:25px">
+
+    <div class="emergency">
+
+      <h2>🚨 Emergency Help</h2>
+
+      <p>
+        Quickly find important emergency services
+        and contacts.
+      </p>
+
+      <button onclick="openFeature('Emergency Services')">
+        Open emergency services
+      </button>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+  © 2026 MANIPUR ONE
+  <br><br>
+  Built for Manipur ❤️
+</footer>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+  <div class="nav-item active" onclick="goHome()">
+    <span class="nav-icon">⌂</span>
+    Home
+  </div>
+
+  <div class="nav-item" onclick="openFeature('Explore')">
+    <span class="nav-icon">🧭</span>
+    Explore
+  </div>
+
+  <div class="nav-item" onclick="openFeature('Map')">
+    <span class="nav-icon">🗺️</span>
+    Map
+  </div>
+
+  <div class="nav-item" onclick="openFeature('Favorites')">
+    <span class="nav-icon">♡</span>
+    Saved
+  </div>
+
+  <div class="nav-item" onclick="openFeature('Profile')">
+    <span class="nav-icon">👤</span>
+    Profile
+  </div>
+
+</nav>
+
+
+<script>
+
+function openFeature(name) {
+  alert(name + " feature is coming soon!");
+}
+
+function goHome() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function searchSite(value) {
+
+  if (value.length > 2) {
+    console.log("Searching for:", value);
+  }
+
+}
+
+</script>
 
 </body>
 </html>
+```
