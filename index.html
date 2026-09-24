@@ -684,6 +684,15 @@ footer {
 <script>
 
 function openFeature(name) {
+
+  if (name === "Map") {
+    window.open(
+      "https://www.google.com/maps/search/Manipur",
+      "_blank"
+    );
+    return;
+  }
+
   alert(name + " feature is coming soon!");
 }
 
