@@ -935,6 +935,8 @@ function openFeature(name) {
 
 function showExplore() {
 
+  document.getElementById("touristSpots").style.display = "none";
+
   document.getElementById("explorePanel").style.display = "block";
 
   document.querySelector("main.container").style.display = "none";
@@ -946,7 +948,35 @@ function showExplore() {
 }
 
 
+function showTouristSpots() {
+
+  document.getElementById("explorePanel").style.display = "none";
+
+  document.getElementById("touristSpots").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+function goExplore() {
+
+  document.getElementById("touristSpots").style.display = "none";
+
+  document.getElementById("explorePanel").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
 function goHome() {
+
+  document.getElementById("touristSpots").style.display = "none";
 
   document.getElementById("explorePanel").style.display = "none";
 
@@ -956,6 +986,17 @@ function goHome() {
     top: 0,
     behavior: "smooth"
   });
+}
+
+
+function openPlace(place) {
+
+  window.open(
+    "https://www.google.com/maps/search/" +
+    encodeURIComponent(place),
+    "_blank"
+  );
+
 }
 
 
