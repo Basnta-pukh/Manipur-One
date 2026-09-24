@@ -1,11 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>MANIPUR ONE</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #111827;
+    }
+
+    header {
+      background: white;
+      padding: 22px 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .tagline {
+      color: #6b7280;
+      margin-top: 5px;
+    }
+
+    .hero {
+      margin: 16px;
+      padding: 25px;
+      border-radius: 22px;
+      background: #111827;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      line-height: 1.6;
+      color: #d1d5db;
+    }
+
+    .hero button {
+      margin-top: 18px;
+      padding: 13px 18px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+      color: #111827;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .section {
+      padding: 10px 16px;
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px 10px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    }
+
+    .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #6b7280;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>MANIPUR ONE</h1>
-  <p>Welcome to Manipur!</p>
+
+  <header>
+    <div class="logo">MANIPUR ONE</div>
+    <div class="tagline">Explore • Connect • Grow</div>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Manipur</h1>
+
+    <p>
+      Discover places, food, transport, businesses,
+      jobs and useful services across Manipur.
+    </p>
+
+    <button onclick="alert('Explore Manipur coming soon!')">
+      Explore Manipur
+    </button>
+  </section>
+
+  <section class="section">
+
+    <h2>Discover</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon">🗺️</div>
+        <p>Explore Map</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🏞️</div>
+        <p>Tourism</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🍴</div>
+        <p>Food</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🚌</div>
+        <p>Transport</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🏪</div>
+        <p>Businesses</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💼</div>
+        <p>Jobs</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛒</div>
+        <p>Local Products</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🚨</div>
+        <p>Emergency</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 MANIPUR ONE
+  </footer>
+
 </body>
 </html>
