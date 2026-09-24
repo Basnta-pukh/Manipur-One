@@ -977,16 +977,21 @@ footer {
 
 function openFeature(name) {
 
-  if (name === "Map") {
-    window.open(
-      "https://www.google.com/maps/search/Manipur",
-      "_blank"
-    );
+  if (name === "Tourism") {
+    showTouristSpots();
     return;
   }
 
   if (name === "Explore") {
     showExplore();
+    return;
+  }
+
+  if (name === "Map") {
+    window.open(
+      "https://www.google.com/maps/search/Manipur",
+      "_blank"
+    );
     return;
   }
 
