@@ -117,27 +117,83 @@ body {
 }
 
 /* MAIN */
+<!-- EXPLORE PANEL -->
 
-.container {
-  padding: 25px 18px;
-}
+<section id="explorePanel" style="display:none; padding:20px;">
 
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
+  <div style="
+    background:linear-gradient(135deg,#087f5b,#12b886);
+    color:white;
+    padding:25px;
+    border-radius:25px;
+    margin-bottom:20px;
+  ">
 
-.section-title h2 {
-  font-size: 21px;
-}
+    <div style="font-size:13px;opacity:.8;">
+      MANIPUR ONE
+    </div>
 
-.see {
-  color: var(--green);
-  font-size: 13px;
-  font-weight: bold;
-}
+    <h1 style="margin-top:8px;">
+      Explore Manipur 🧭
+    </h1>
+
+    <p style="margin-top:8px;line-height:1.5;">
+      Discover amazing places, food, stays and
+      experiences across Manipur.
+    </p>
+
+  </div>
+
+  <h2 style="margin-bottom:15px;">
+    Explore by category
+  </h2>
+
+  <div class="discover-grid">
+
+    <div class="small-card" onclick="openFeature('Tourist Spots')">
+      <div class="small-icon">🏞️</div>
+      <p>Tourist Spots</p>
+    </div>
+
+    <div class="small-card" onclick="openFeature('Restaurants')">
+      <div class="small-icon">🍜</div>
+      <p>Restaurants</p>
+    </div>
+
+    <div class="small-card" onclick="openFeature('Hotels')">
+      <div class="small-icon">🏨</div>
+      <p>Hotels</p>
+    </div>
+
+    <div class="small-card" onclick="openFeature('Transport')">
+      <div class="small-icon">🚌</div>
+      <p>Transport</p>
+    </div>
+
+    <div class="small-card" onclick="openFeature('Hospitals')">
+      <div class="small-icon">🏥</div>
+      <p>Hospitals</p>
+    </div>
+
+    <div class="small-card" onclick="openFeature('Businesses')">
+      <div class="small-icon">🏪</div>
+      <p>Businesses</p>
+    </div>
+
+    <div class="small-card" onclick="openFeature('Events')">
+      <div class="small-icon">🎉</div>
+      <p>Events</p>
+    </div>
+
+    <div class="small-card" onclick="openFeature('Local Products')">
+      <div class="small-icon">🛍️</div>
+      <p>Local Products</p>
+    </div>
+
+  </div>
+
+</section>
+
 
 /* FEATURE CARDS */
 
@@ -693,15 +749,40 @@ function openFeature(name) {
     return;
   }
 
+  if (name === "Explore") {
+    showExplore();
+    return;
+  }
+
   alert(name + " feature is coming soon!");
 }
 
-function goHome() {
+
+function showExplore() {
+
+  document.getElementById("explorePanel").style.display = "block";
+
+  document.querySelector("main.container").style.display = "none";
+
   window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
 }
+
+
+function goHome() {
+
+  document.getElementById("explorePanel").style.display = "none";
+
+  document.querySelector("main.container").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
 
 function searchSite(value) {
 
