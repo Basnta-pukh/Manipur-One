@@ -150,10 +150,10 @@ body {
 
   <div class="discover-grid">
 
-    <div class="small-card" onclick="openFeature('Tourist Spots')">
-      <div class="small-icon">🏞️</div>
-      <p>Tourist Spots</p>
-    </div>
+<div class="small-card" onclick="showTouristSpots()">
+  <div class="small-icon">🏞️</div>
+  <p>Tourist Spots</p>
+</div>
 
     <div class="small-card" onclick="openFeature('Restaurants')">
       <div class="small-icon">🍜</div>
@@ -193,7 +193,182 @@ body {
   </div>
 
 </section>
+  
+<!-- PREMIUM TOURIST SPOTS -->
 
+<section id="touristSpots" style="display:none; padding:20px;">
+
+  <div style="
+    background:linear-gradient(135deg,#ff922b,#ff6b6b);
+    color:white;
+    padding:28px;
+    border-radius:26px;
+    margin-bottom:25px;
+  ">
+
+    <div style="font-size:13px;opacity:.8;">
+      MANIPUR ONE • TOURISM
+    </div>
+
+    <h1 style="margin:8px 0;">
+      Discover Manipur 🏞️
+    </h1>
+
+    <p style="margin:0;line-height:1.5;">
+      Explore lakes, hills, wildlife, heritage and
+      beautiful destinations across Manipur.
+    </p>
+
+  </div>
+
+
+  <h2 style="margin-bottom:15px;">
+    Popular Destinations
+  </h2>
+
+
+  <div class="discover-grid">
+
+
+    <div class="small-card"
+         onclick="openPlace('Loktak Lake, Manipur')">
+
+      <div class="small-icon">🌊</div>
+
+      <h3>Loktak Lake</h3>
+
+      <p>Floating lake & Phumdis</p>
+
+    </div>
+
+
+    <div class="small-card"
+         onclick="openPlace('Keibul Lamjao National Park, Manipur')">
+
+      <div class="small-icon">🦌</div>
+
+      <h3>Keibul Lamjao</h3>
+
+      <p>Home of the Sangai</p>
+
+    </div>
+
+
+    <div class="small-card"
+         onclick="openPlace('Kangla Fort, Imphal, Manipur')">
+
+      <div class="small-icon">🏯</div>
+
+      <h3>Kangla</h3>
+
+      <p>Historic heritage site</p>
+
+    </div>
+
+
+    <div class="small-card"
+         onclick="openPlace('Shirui Hills, Ukhrul, Manipur')">
+
+      <div class="small-icon">⛰️</div>
+
+      <h3>Shirui Hills</h3>
+
+      <p>Home of Shirui Lily</p>
+
+    </div>
+
+
+    <div class="small-card"
+         onclick="openPlace('Khangkhui Lime Caves, Manipur')">
+
+      <div class="small-icon">🪨</div>
+
+      <h3>Khangkhui Caves</h3>
+
+      <p>Prehistoric limestone caves</p>
+
+    </div>
+
+
+    <div class="small-card"
+         onclick="openPlace('Dzukou Valley, Manipur')">
+
+      <div class="small-icon">🌄</div>
+
+      <h3>Dzükou Valley</h3>
+
+      <p>Hills, flowers & trekking</p>
+
+    </div>
+
+
+    <div class="small-card"
+         onclick="openPlace('Sadu Chiru Waterfall, Manipur')">
+
+      <div class="small-icon">💧</div>
+
+      <h3>Sadu Chiru</h3>
+
+      <p>Scenic waterfall</p>
+
+    </div>
+
+
+    <div class="small-card"
+         onclick="openPlace('Phangrei Peak, Ukhrul, Manipur')">
+
+      <div class="small-icon">🏔️</div>
+
+      <h3>Phangrei</h3>
+
+      <p>Mountain views & nature</p>
+
+    </div>
+
+
+    <div class="small-card"
+         onclick="openPlace('Ima Market, Imphal, Manipur')">
+
+      <div class="small-icon">🛍️</div>
+
+      <h3>Ima Market</h3>
+
+      <p>Historic women-run market</p>
+
+    </div>
+
+
+    <div class="small-card"
+         onclick="openPlace('Shaheed Minar, Imphal, Manipur')">
+
+      <div class="small-icon">🏛️</div>
+
+      <h3>Shaheed Minar</h3>
+
+      <p>Historic memorial</p>
+
+    </div>
+
+
+  </div>
+
+
+  <button onclick="goExplore()" style="
+    margin-top:25px;
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:16px;
+    background:#087f5b;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+  ">
+    ← Back to Explore
+  </button>
+
+</section>
 
 /* FEATURE CARDS */
 
