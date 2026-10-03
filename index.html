@@ -1,1182 +1,452 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MANIPUR ONE</title>
-
+<title>Civis OS — Digital Civic Intelligence</title>
 <style>
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-:root {
-  --green: #087f5b;
-  --green2: #12b886;
-  --orange: #ff922b;
-  --red: #e03131;
-  --blue: #1971c2;
-  --purple: #7950f2;
-  --dark: #101828;
-  --text: #172033;
-  --muted: #667085;
-  --bg: #f6f8fb;
-  --white: #ffffff;
-}
-
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  padding-bottom: 90px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f7f8;
+    color: #17211b;
 }
-
-/* TOP BAR */
-
+/* ---------- TOP BAR ---------- */
 .topbar {
-  background: linear-gradient(135deg, #063b2b, #087f5b, #12b886);
-  color: white;
-  padding: 24px 20px 28px;
-  border-radius: 0 0 30px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 70px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #e5e9e6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
 }
-
-.brand-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.5px;
 }
-
-.logo span {
-  color: #ffd43b;
+.logo-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: #123c2a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
 }
-
-.profile {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 21px;
+.status {
+    font-size: 12px;
+    color: #087f5b;
+    background: #e7f5ef;
+    padding: 7px 11px;
+    border-radius: 20px;
 }
-
-/* HERO */
-
-.hero {
-  margin-top: 25px;
-}
-
-.hero small {
-  opacity: .8;
-}
-
-.hero h1 {
-  font-size: 34px;
-  line-height: 1.1;
-  margin: 8px 0 10px;
-}
-
-.hero p {
-  color: rgba(255,255,255,.85);
-  line-height: 1.5;
-}
-
-/* SEARCH */
-
-.search {
-  margin-top: 22px;
-  background: white;
-  border-radius: 17px;
-  padding: 15px 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.12);
-}
-
-.search input {
-  border: none;
-  outline: none;
-  width: 100%;
-  font-size: 15px;
-}
-
-.search-icon {
-  font-size: 20px;
-}
-
-/* MAIN */
-<!-- EXPLORE PANEL -->
-
-<section id="explorePanel" style="display:none; padding:20px;">
-
-  <div style="
-    background:linear-gradient(135deg,#087f5b,#12b886);
-    color:white;
-    padding:25px;
-    border-radius:25px;
-    margin-bottom:20px;
-  ">
-
-    <div style="font-size:13px;opacity:.8;">
-      MANIPUR ONE
-    </div>
-
-    <h1 style="margin-top:8px;">
-      Explore Manipur 🧭
-    </h1>
-
-    <p style="margin-top:8px;line-height:1.5;">
-      Discover amazing places, food, stays and
-      experiences across Manipur.
-    </p>
-
-  </div>
-
-  <h2 style="margin-bottom:15px;">
-    Explore by category
-  </h2>
-
-  <div class="discover-grid">
-
-<div class="small-card" onclick="showTouristSpots()"
-  <div class="small-icon">🏞️</div>
-  <p>Tourist Spots</p>
-</div>
-
-    <div class="small-card" onclick="openFeature('Restaurants')">
-      <div class="small-icon">🍜</div>
-      <p>Restaurants</p>
-    </div>
-
-    <div class="small-card" onclick="openFeature('Hotels')">
-      <div class="small-icon">🏨</div>
-      <p>Hotels</p>
-    </div>
-
-    <div class="small-card" onclick="openFeature('Transport')">
-      <div class="small-icon">🚌</div>
-      <p>Transport</p>
-    </div>
-
-    <div class="small-card" onclick="openFeature('Hospitals')">
-      <div class="small-icon">🏥</div>
-      <p>Hospitals</p>
-    </div>
-
-    <div class="small-card" onclick="openFeature('Businesses')">
-      <div class="small-icon">🏪</div>
-      <p>Businesses</p>
-    </div>
-
-    <div class="small-card" onclick="openFeature('Events')">
-      <div class="small-icon">🎉</div>
-      <p>Events</p>
-    </div>
-
-    <div class="small-card" onclick="openFeature('Local Products')">
-      <div class="small-icon">🛍️</div>
-      <p>Local Products</p>
-    </div>
-
-  </div>
-
-</section>
-<!-- RESTAURANTS -->
-
-<section id="restaurantsPanel" style="display:none; padding:20px;">
-
-  <div style="
-    background:linear-gradient(135deg,#ff7a18,#ff3d71);
-    color:white;
-    padding:28px;
-    border-radius:26px;
-    margin-bottom:25px;
-  ">
-
-    <div style="font-size:13px;opacity:.8;">
-      MANIPUR ONE • FOOD
-    </div>
-
-    <h1 style="margin:8px 0;">
-      Taste Manipur 🍜
-    </h1>
-
-    <p style="margin:0;line-height:1.5;">
-      Discover restaurants, cafés and local food
-      experiences across Manipur.
-    </p>
-
-  </div>
-
-
-  <h2 style="margin-bottom:15px;">
-    Explore Food
-  </h2>
-
-
-  <div class="discover-grid">
-
-    <div class="small-card"
-         onclick="searchFood('Manipuri restaurants')">
-      <div class="small-icon">🍛</div>
-      <h3>Manipuri Cuisine</h3>
-      <p>Traditional local dishes</p>
-    </div>
-
-
-    <div class="small-card"
-         onclick="searchFood('restaurants in Imphal')">
-      <div class="small-icon">🍽️</div>
-      <h3>Restaurants</h3>
-      <p>Places to eat nearby</p>
-    </div>
-
-
-    <div class="small-card"
-         onclick="searchFood('cafes in Imphal')">
-      <div class="small-icon">☕</div>
-      <h3>Cafés</h3>
-      <p>Coffee, snacks & desserts</p>
-    </div>
-
-
-    <div class="small-card"
-         onclick="searchFood('street food in Imphal')">
-      <div class="small-icon">🥤</div>
-      <h3>Street Food</h3>
-      <p>Local food experiences</p>
-    </div>
-
-
-    <div class="small-card"
-         onclick="searchFood('vegetarian restaurants in Imphal')">
-      <div class="small-icon">🥗</div>
-      <h3>Vegetarian</h3>
-      <p>Vegetarian food options</p>
-    </div>
-
-
-    <div class="small-card"
-         onclick="searchFood('family restaurants in Imphal')">
-      <div class="small-icon">👨‍👩‍👧</div>
-      <h3>Family Dining</h3>
-      <p>Places for families</p>
-    </div>
-
-  </div>
-
-
-  <button onclick="goExplore()" style="
-    margin-top:25px;
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:16px;
-    background:#087f5b;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-  ">
-    ← Back to Explore
-  </button>
-
-</section>  
-  
-<!-- PREMIUM TOURIST SPOTS -->
- 
-<section id="touristSpots" style="display:none; padding:20px;">
-
-  <div style="
-    background:linear-gradient(135deg,#ff922b,#ff6b6b);
-    color:white;
-    padding:28px;
-    border-radius:26px;
-    margin-bottom:25px;
-  ">
-
-    <div style="font-size:13px;opacity:.8;">
-      MANIPUR ONE • TOURISM
-    </div>
-
-    <h1 style="margin:8px 0;">
-      Discover Manipur 🏞️
-    </h1>
-
-    <p style="margin:0;line-height:1.5;">
-      Explore lakes, hills, wildlife, heritage and
-      beautiful destinations across Manipur.
-    </p>
-
-  </div>
-
-
-  <h2 style="margin-bottom:15px;">
-    Popular Destinations
-  </h2>
-
-
-  <div class="discover-grid">
-
-
-    <div class="small-card"
-         onclick="openPlace('Loktak Lake, Manipur')">
-
-      <div class="small-icon">🌊</div>
-
-      <h3>Loktak Lake</h3>
-
-      <p>Floating lake & Phumdis</p>
-
-    </div>
-
-
-    <div class="small-card"
-         onclick="openPlace('Keibul Lamjao National Park, Manipur')">
-
-      <div class="small-icon">🦌</div>
-
-      <h3>Keibul Lamjao</h3>
-
-      <p>Home of the Sangai</p>
-
-    </div>
-
-
-    <div class="small-card"
-         onclick="openPlace('Kangla Fort, Imphal, Manipur')">
-
-      <div class="small-icon">🏯</div>
-
-      <h3>Kangla</h3>
-
-      <p>Historic heritage site</p>
-
-    </div>
-
-
-    <div class="small-card"
-         onclick="openPlace('Shirui Hills, Ukhrul, Manipur')">
-
-      <div class="small-icon">⛰️</div>
-
-      <h3>Shirui Hills</h3>
-
-      <p>Home of Shirui Lily</p>
-
-    </div>
-
-
-    <div class="small-card"
-         onclick="openPlace('Khangkhui Lime Caves, Manipur')">
-
-      <div class="small-icon">🪨</div>
-
-      <h3>Khangkhui Caves</h3>
-
-      <p>Prehistoric limestone caves</p>
-
-    </div>
-
-
-    <div class="small-card"
-         onclick="openPlace('Dzukou Valley, Manipur')">
-
-      <div class="small-icon">🌄</div>
-
-      <h3>Dzükou Valley</h3>
-
-      <p>Hills, flowers & trekking</p>
-
-    </div>
-
-
-    <div class="small-card"
-         onclick="openPlace('Sadu Chiru Waterfall, Manipur')">
-
-      <div class="small-icon">💧</div>
-
-      <h3>Sadu Chiru</h3>
-
-      <p>Scenic waterfall</p>
-
-    </div>
-
-
-    <div class="small-card"
-         onclick="openPlace('Phangrei Peak, Ukhrul, Manipur')">
-
-      <div class="small-icon">🏔️</div>
-
-      <h3>Phangrei</h3>
-
-      <p>Mountain views & nature</p>
-
-    </div>
-
-
-    <div class="small-card"
-         onclick="openPlace('Ima Market, Imphal, Manipur')">
-
-      <div class="small-icon">🛍️</div>
-
-      <h3>Ima Market</h3>
-
-      <p>Historic women-run market</p>
-
-    </div>
-
-
-    <div class="small-card"
-         onclick="openPlace('Shaheed Minar, Imphal, Manipur')">
-
-      <div class="small-icon">🏛️</div>
-
-      <h3>Shaheed Minar</h3>
-
-      <p>Historic memorial</p>
-
-    </div>
-
-
-  </div>
-
-
-  <button onclick="goExplore()" style="
-    margin-top:25px;
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:16px;
-    background:#087f5b;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-  ">
-    ← Back to Explore
-  </button>
-
-</section>
-
-/* FEATURE CARDS */
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 13px;
-}
-
-.feature {
-  min-height: 145px;
-  border-radius: 23px;
-  padding: 18px;
-  color: white;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform .2s;
-}
-
-.feature:active {
-  transform: scale(.96);
-}
-
-.feature h3 {
-  font-size: 18px;
-  margin-top: 32px;
-}
-
-.feature p {
-  font-size: 12px;
-  margin-top: 5px;
-  opacity: .85;
-}
-
-.feature-icon {
-  position: absolute;
-  right: 15px;
-  top: 13px;
-  font-size: 34px;
-}
-
-.map {
-  background: linear-gradient(135deg, #1971c2, #4dabf7);
-}
-
-.tourism {
-  background: linear-gradient(135deg, #087f5b, #38d9a9);
-}
-
-.food {
-  background: linear-gradient(135deg, #e8590c, #ff922b);
-}
-
-.transport {
-  background: linear-gradient(135deg, #6741d9, #9775fa);
-}
-
-/* DISCOVER */
-
-.discover-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-.small-card {
-  background: white;
-  border-radius: 17px;
-  padding: 15px 5px;
-  text-align: center;
-  box-shadow: 0 5px 18px rgba(16,24,40,.06);
-  cursor: pointer;
-}
-
-.small-card:active {
-  transform: scale(.95);
-}
-
-.small-icon {
-  font-size: 25px;
-  margin-bottom: 8px;
-}
-
-.small-card p {
-  font-size: 11px;
-  font-weight: 700;
-}
-
-/* DESTINATION */
-
-.destination {
-  height: 210px;
-  border-radius: 25px;
-  overflow: hidden;
-  position: relative;
-  background:
-    linear-gradient(to top, rgba(0,0,0,.8), transparent),
-    linear-gradient(135deg, #74c0fc, #087f5b);
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-}
-
-.destination-content h2 {
-  font-size: 24px;
-}
-
-.destination-content p {
-  margin-top: 5px;
-  opacity: .85;
-  font-size: 13px;
-}
-
-/* QUICK ACTIONS */
-
-.actions {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 5px;
-}
-
-.action {
-  min-width: 135px;
-  background: white;
-  border-radius: 18px;
-  padding: 17px;
-  box-shadow: 0 5px 18px rgba(16,24,40,.06);
-}
-
-.action-icon {
-  font-size: 26px;
-}
-
-.action h4 {
-  margin-top: 10px;
-}
-
-.action p {
-  color: var(--muted);
-  font-size: 11px;
-  margin-top: 4px;
-}
-
-/* BUSINESS */
-
-.business {
-  background: linear-gradient(135deg, #fff4e6, #ffe8cc);
-  border-radius: 24px;
-  padding: 20px;
-}
-
-.business h2 {
-  color: #d9480f;
-}
-
-.business p {
-  color: #7c2d12;
-  margin-top: 7px;
-  line-height: 1.5;
-  font-size: 13px;
-}
-
-.business button {
-  margin-top: 15px;
-  border: none;
-  background: #e8590c;
-  color: white;
-  padding: 12px 17px;
-  border-radius: 12px;
-  font-weight: bold;
-}
-
-/* EMERGENCY */
-
-.emergency {
-  background: linear-gradient(135deg, #c92a2a, #ff6b6b);
-  color: white;
-  padding: 20px;
-  border-radius: 23px;
-}
-
-.emergency h2 {
-  font-size: 20px;
-}
-
-.emergency p {
-  opacity: .9;
-  margin-top: 5px;
-  font-size: 13px;
-}
-
-.emergency button {
-  margin-top: 15px;
-  background: white;
-  color: #c92a2a;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 18px;
-  font-weight: bold;
-}
-
-/* FOOTER */
-
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-/* BOTTOM NAV */
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 72px;
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(15px);
-  border-top: 1px solid #e5e7eb;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 100;
-}
-
-.nav-item {
-  text-align: center;
-  color: #98a2b3;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.nav-item.active {
-  color: var(--green);
-}
-
-.nav-icon {
-  font-size: 22px;
-  display: block;
-  margin-bottom: 3px;
-}
-
-/* DESKTOP */
-
-@media (min-width: 700px) {
-  .topbar {
-    padding: 35px calc((100% - 900px)/2);
-  }
-
-  .container {
-    max-width: 900px;
+/* ---------- MAIN ---------- */
+main {
+    max-width: 1100px;
     margin: auto;
-  }
-
-  .feature-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .discover-grid {
-    grid-template-columns: repeat(8, 1fr);
-  }
+    padding: 30px 20px 100px;
 }
- /* PREMIUM TOURIST CARDS */
-
-#touristSpots .discover-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+/* ---------- HERO ---------- */
+.hero {
+    background: linear-gradient(135deg, #123c2a, #176044);
+    color: white;
+    border-radius: 28px;
+    padding: 38px 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(18,60,42,0.18);
 }
-
-#touristSpots .small-card {
-  background: rgba(255,255,255,0.96);
-  border-radius: 22px;
-  padding: 18px;
-  min-height: 150px;
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 35px solid rgba(255,255,255,0.06);
+    right: -70px;
+    top: -70px;
 }
-
-#touristSpots .small-card:active {
-  transform: scale(0.97);
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    opacity: 0.7;
+    margin-bottom: 12px;
 }
-
-#touristSpots .small-icon {
-  font-size: 38px;
-  margin-bottom: 12px;
+.hero h1 {
+    font-size: clamp(38px, 9vw, 70px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    max-width: 700px;
 }
-
-#touristSpots .small-card h3 {
-  margin: 0 0 7px;
-  font-size: 17px;
-  color: #173b32;
+.hero p {
+    margin-top: 18px;
+    max-width: 600px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.78);
 }
-
-#touristSpots .small-card p {
-  margin: 0;
-  font-size: 13px;
-  color: #718078;
-  line-height: 1.4;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-  #touristSpots {
-    padding: 16px !important;
-  }
-
-  #touristSpots .discover-grid {
-    grid-template-columns: 1fr 1fr;
+/* ---------- ACTIONS ---------- */
+.actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-  }
-
-  #touristSpots .small-card {
-    padding: 15px;
-    min-height: 140px;
-  }
-
-} 
+    margin-top: 18px;
+}
+.action-btn {
+    border: none;
+    border-radius: 18px;
+    padding: 18px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+.primary {
+    background: white;
+    color: #123c2a;
+}
+.secondary {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+.action-icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 8px;
+}
+/* ---------- SECTION ---------- */
+.section {
+    margin-top: 34px;
+}
+.section-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.section-header h2 {
+    font-size: 22px;
+    letter-spacing: -0.5px;
+}
+.section-header span {
+    font-size: 13px;
+    color: #7a857e;
+}
+/* ---------- STATS ---------- */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.stat-card {
+    background: white;
+    border: 1px solid #e8ece9;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+}
+.stat-number {
+    font-size: 30px;
+    font-weight: 800;
+}
+.stat-label {
+    margin-top: 5px;
+    color: #7a857e;
+    font-size: 13px;
+}
+/* ---------- CIVIC ISSUES ---------- */
+.issue-list {
+    display: grid;
+    gap: 12px;
+}
+.issue-card {
+    background: white;
+    border: 1px solid #e8ece9;
+    border-radius: 20px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+.issue-info h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.issue-info p {
+    font-size: 12px;
+    color: #7a857e;
+}
+.badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 7px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.high {
+    background: #ffe8e8;
+    color: #b42318;
+}
+.medium {
+    background: #fff4d6;
+    color: #8a5a00;
+}
+.resolved {
+    background: #e5f6ee;
+    color: #087f5b;
+}
+/* ---------- VISION ---------- */
+.vision {
+    background: #e9f2ef;
+    border-radius: 24px;
+    padding: 25px;
+}
+.vision h2 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+.vision p {
+    color: #536159;
+    line-height: 1.6;
+    font-size: 14px;
+}
+/* ---------- BOTTOM NAV ---------- */
+.bottom-nav {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 28px);
+    max-width: 500px;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(18px);
+    border: 1px solid #e1e7e3;
+    border-radius: 22px;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.nav-item {
+    border: none;
+    background: transparent;
+    padding: 10px 4px;
+    border-radius: 16px;
+    color: #7a857e;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.nav-item.active {
+    background: #e7f5ef;
+    color: #087f5b;
+}
+.nav-icon {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+/* ---------- DESKTOP ---------- */
+@media (min-width: 700px) {
+    .actions {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .hero {
+        padding: 55px;
+    }
+}
 </style>
 </head>
-
 <body>
-
-<!-- TOP -->
-
 <header class="topbar">
-
-  <div class="brand-row">
     <div class="logo">
-      MANIPUR <span>ONE</span>
+        <div class="logo-mark">C</div>
+        <span>Civis OS</span>
     </div>
-
-    <div class="profile">👤</div>
-  </div>
-
-  <div class="hero">
-    <small>YOUR DIGITAL GUIDE TO MANIPUR</small>
-
-    <h1>Explore Manipur.<br>All in one place.</h1>
-
-    <p>
-      Discover places, food, people, businesses,
-      services and everything Manipur has to offer.
-    </p>
-  </div>
-
-  <div class="search">
-    <span class="search-icon">🔎</span>
-    <input
-      type="text"
-      placeholder="Search Manipur..."
-      onkeyup="searchSite(this.value)"
-    >
-  </div>
-
+    <div class="status">
+        ● Civic Network
+    </div>
 </header>
-
-
-<!-- MAIN -->
-
-<main class="container">
-
-  <!-- FEATURED -->
-
-  <div class="section-title">
-    <h2>Explore</h2>
-    <span class="see">View all</span>
-  </div>
-
-  <div class="feature-grid">
-
-    <div class="feature map" onclick="openFeature('Map')">
-      <div class="feature-icon">🗺️</div>
-      <h3>Explore Map</h3>
-      <p>Find places around Manipur</p>
-    </div>
-
-    <div class="feature tourism" onclick="openFeature('Tourism')">
-      <div class="feature-icon">🏔️</div>
-      <h3>Tourism</h3>
-      <p>Discover beautiful destinations</p>
-    </div>
-
-    <div class="feature food" onclick="openFeature('Food')">
-      <div class="feature-icon">🍜</div>
-      <h3>Food</h3>
-      <p>Find local food & restaurants</p>
-    </div>
-
-    <div class="feature transport" onclick="openFeature('Transport')">
-      <div class="feature-icon">🚌</div>
-      <h3>Transport</h3>
-      <p>Move around Manipur</p>
-    </div>
-
-  </div>
-
-
-  <!-- DISCOVER -->
-
-  <div style="margin-top:30px">
-
-    <div class="section-title">
-      <h2>Discover</h2>
-      <span class="see">More</span>
-    </div>
-
-    <div class="discover-grid">
-
-      <div class="small-card" onclick="openFeature('Hotels')">
-        <div class="small-icon">🏨</div>
-        <p>Hotels</p>
-      </div>
-
-      <div class="small-card" onclick="openFeature('Businesses')">
-        <div class="small-icon">🏪</div>
-        <p>Business</p>
-      </div>
-
-      <div class="small-card" onclick="openFeature('Jobs')">
-        <div class="small-icon">💼</div>
-        <p>Jobs</p>
-      </div>
-
-      <div class="small-card" onclick="openFeature('Products')">
-        <div class="small-icon">🛍️</div>
-        <p>Products</p>
-      </div>
-
-      <div class="small-card" onclick="openFeature('Hospitals')">
-        <div class="small-icon">🏥</div>
-        <p>Hospitals</p>
-      </div>
-
-      <div class="small-card" onclick="openFeature('Events')">
-        <div class="small-icon">🎉</div>
-        <p>Events</p>
-      </div>
-
-      <div class="small-card" onclick="openFeature('Favorites')">
-        <div class="small-icon">❤️</div>
-        <p>Favorites</p>
-      </div>
-
-      <div class="small-card" onclick="openFeature('Emergency')">
-        <div class="small-icon">🚨</div>
-        <p>Emergency</p>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- DESTINATION -->
-
-  <div style="margin-top:30px">
-
-    <div class="section-title">
-      <h2>Featured destination</h2>
-      <span class="see">Explore</span>
-    </div>
-
-    <div class="destination">
-
-      <div class="destination-content">
-        <h2>Loktak Lake</h2>
-        <p>Discover one of Manipur's most iconic destinations.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- QUICK ACTIONS -->
-
-  <div style="margin-top:30px">
-
-    <div class="section-title">
-      <h2>Quick services</h2>
-    </div>
-
-    <div class="actions">
-
-      <div class="action" onclick="openFeature('Hospitals')">
-        <div class="action-icon">🏥</div>
-        <h4>Hospitals</h4>
-        <p>Find healthcare nearby</p>
-      </div>
-
-      <div class="action" onclick="openFeature('Transport')">
-        <div class="action-icon">🚕</div>
-        <h4>Transport</h4>
-        <p>Travel around Manipur</p>
-      </div>
-
-      <div class="action" onclick="openFeature('Jobs')">
-        <div class="action-icon">💼</div>
-        <h4>Jobs</h4>
-        <p>Find opportunities</p>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- BUSINESS -->
-
-  <div style="margin-top:30px">
-
-    <div class="business">
-
-      <h2>Grow your business 🚀</h2>
-
-      <p>
-        Are you a local business owner?
-        Put your business in front of people
-        across Manipur.
-      </p>
-
-      <button onclick="openFeature('Business Registration')">
-        List your business
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- EMERGENCY -->
-
-  <div style="margin-top:25px">
-
-    <div class="emergency">
-
-      <h2>🚨 Emergency Help</h2>
-
-      <p>
-        Quickly find important emergency services
-        and contacts.
-      </p>
-
-      <button onclick="openFeature('Emergency Services')">
-        Open emergency services
-      </button>
-
-    </div>
-
-  </div>
-
+<main>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="eyebrow">
+            AI + DIGITAL GOVERNANCE
+        </div>
+        <h1>
+            Make your city heard.
+        </h1>
+        <p>
+            Civis OS connects citizens, communities and governance
+            through AI-powered civic intelligence.
+        </p>
+        <div class="actions">
+            <button class="action-btn primary"
+                    onclick="reportProblem()">
+                <span class="action-icon">📢</span>
+                Report a Problem
+            </button>
+            <button class="action-btn secondary"
+                    onclick="exploreIssues()">
+                <span class="action-icon">🗺️</span>
+                Explore Issues
+            </button>
+            <button class="action-btn secondary"
+                    onclick="community()">
+                <span class="action-icon">🤝</span>
+                Join Community
+            </button>
+            <button class="action-btn secondary"
+                    onclick="dashboard()">
+                <span class="action-icon">📊</span>
+                Civic Dashboard
+            </button>
+        </div>
+    </section>
+    <!-- CIVIC PULSE -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Civic Pulse</h2>
+            <span>Live overview</span>
+        </div>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">128</div>
+                <div class="stat-label">Issues Reported</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">84</div>
+                <div class="stat-label">Resolved</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">31</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Awaiting Action</div>
+            </div>
+        </div>
+    </section>
+    <!-- RECENT ISSUES -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Recent Civic Issues</h2>
+            <span>Today</span>
+        </div>
+        <div class="issue-list">
+            <div class="issue-card">
+                <div class="issue-info">
+                    <h3>Large pothole near school</h3>
+                    <p>Infrastructure • 12 min ago</p>
+                </div>
+                <span class="badge high">
+                    HIGH
+                </span>
+            </div>
+            <div class="issue-card">
+                <div class="issue-info">
+                    <h3>Garbage collection delayed</h3>
+                    <p>Sanitation • 34 min ago</p>
+                </div>
+                <span class="badge medium">
+                    MEDIUM
+                </span>
+            </div>
+            <div class="issue-card">
+                <div class="issue-info">
+                    <h3>Streetlight repaired</h3>
+                    <p>Public Lighting • 1 hr ago</p>
+                </div>
+                <span class="badge resolved">
+                    RESOLVED
+                </span>
+            </div>
+        </div>
+    </section>
+    <!-- VISION -->
+    <section class="section">
+        <div class="vision">
+            <h2>One platform. Better civic action.</h2>
+            <p>
+                Civis OS uses artificial intelligence to understand
+                civic problems, help prioritize them and connect
+                the right people with the right problems.
+            </p>
+        </div>
+    </section>
 </main>
-
-
-<footer>
-  © 2026 MANIPUR ONE
-  <br><br>
-  Built for Manipur ❤️
-</footer>
-
-
 <!-- BOTTOM NAV -->
-
 <nav class="bottom-nav">
-
-  <div class="nav-item active" onclick="goHome()">
-    <span class="nav-icon">⌂</span>
-    Home
-  </div>
-
-  <div class="nav-item" onclick="openFeature('Explore')">
-    <span class="nav-icon">🧭</span>
-    Explore
-  </div>
-
-  <div class="nav-item" onclick="openFeature('Map')">
-    <span class="nav-icon">🗺️</span>
-    Map
-  </div>
-
-  <div class="nav-item" onclick="openFeature('Favorites')">
-    <span class="nav-icon">♡</span>
-    Saved
-  </div>
-
-  <div class="nav-item" onclick="openFeature('Profile')">
-    <span class="nav-icon">👤</span>
-    Profile
-  </div>
-
+    <button class="nav-item active" onclick="goHome()">
+        <span class="nav-icon">⌂</span>
+        Home
+    </button>
+    <button class="nav-item" onclick="reportProblem()">
+        <span class="nav-icon">＋</span>
+        Report
+    </button>
+    <button class="nav-item" onclick="exploreIssues()">
+        <span class="nav-icon">◉</span>
+        Issues
+    </button>
+    <button class="nav-item" onclick="dashboard()">
+        <span class="nav-icon">▦</span>
+        Dashboard
+    </button>
 </nav>
-
-
 <script>
-
-function openFeature(name) {
-
-  if (name === "Tourism") {
-    showTouristSpots();
-    return;
-  }
-
-  if (name === "Explore") {
-    showExplore();
-    return;
-  }
-
-  if (name === "Map") {
-    window.open(
-      "https://www.google.com/maps/search/Manipur",
-      "_blank"
-    );
-    return;
-  }
-
-  alert(name + " feature is coming soon!");
-}
-
-
-function showExplore() {
-
-  document.getElementById("touristSpots").style.display = "none";
-
-  document.getElementById("explorePanel").style.display = "block";
-
-  document.querySelector("main.container").style.display = "none";
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-
-function showTouristSpots() {
-
-  document.getElementById("explorePanel").style.display = "none";
-
-  document.getElementById("touristSpots").style.display = "block";
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-
-function goExplore() {
-
-  document.getElementById("touristSpots").style.display = "none";
-
-  document.getElementById("explorePanel").style.display = "block";
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-
+/* ---------- NAVIGATION PLACEHOLDERS ---------- */
 function goHome() {
-
-  document.getElementById("touristSpots").style.display = "none";
-
-  document.getElementById("explorePanel").style.display = "none";
-
-  document.querySelector("main.container").style.display = "block";
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
-
-
-function openPlace(place) {
-
-  window.open(
-    "https://www.google.com/maps/search/" +
-    encodeURIComponent(place),
-    "_blank"
-  );
-
+function reportProblem() {
+    alert(
+        "Civis OS Report System\n\nComing next: AI-powered civic problem reporting."
+    );
 }
-
-
-function searchSite(value) {
-
-  if (value.length > 2) {
-    console.log("Searching for:", value);
-  }
-
+function exploreIssues() {
+    alert(
+        "Civis OS Issue Explorer\n\nComing next: map-based civic issue discovery."
+    );
 }
-
+function community() {
+    alert(
+        "Civis OS Community\n\nComing next: civic collaboration and skill matching."
+    );
+}
+function dashboard() {
+    alert(
+        "Civis OS Governance Dashboard\n\nComing next: AI-powered governance analytics."
+    );
+}
 </script>
-
 </body>
 </html>
-```
